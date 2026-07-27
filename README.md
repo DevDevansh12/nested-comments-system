@@ -62,7 +62,7 @@ README.md
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/nested-comments-system.git
+git clone https://github.com/DevDevansh12/nested-comments-system.git
 cd nested-comments-system
 ```
 
@@ -80,21 +80,6 @@ npm install
 ### Configure environment variables
 
 Create the following files:
-
-**Backend**
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
-```
-
-**Frontend**
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
-NEXT_PUBLIC_SOCKET_URL=http://localhost:5000
-```
 
 ### Run the application
 
