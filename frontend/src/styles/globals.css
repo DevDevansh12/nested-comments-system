@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  /* ── Input base ─────────────────────────────────────── */
+  .input-base {
+    @apply block w-full rounded-xl border border-slate-700 bg-slate-800/60 px-4 py-3
+           text-sm text-slate-100 placeholder-slate-500
+           shadow-inner shadow-black/20
+           transition-all duration-200
+           focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30;
+  }
+
+  /* ── Button variants ────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl
+           bg-gradient-to-r from-violet-600 to-indigo-600
+           px-5 py-2.5 text-sm font-semibold text-white
+           shadow-lg shadow-violet-900/40
+           transition-all duration-200
+           hover:from-violet-500 hover:to-indigo-500 hover:shadow-violet-700/50
+           focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 focus:ring-offset-slate-900
+           disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg
+           px-3 py-1.5 text-xs font-medium text-slate-400
+           transition-all duration-150
+           hover:bg-slate-700/60 hover:text-slate-200
+           focus:outline-none focus:ring-1 focus:ring-slate-500
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg
+           px-3 py-1.5 text-xs font-medium text-rose-400
+           transition-all duration-150
+           hover:bg-rose-900/30 hover:text-rose-300
+           focus:outline-none focus:ring-1 focus:ring-rose-500
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  /* ── Card ───────────────────────────────────────────── */
+  .card {
+    @apply rounded-2xl border border-slate-800 bg-slate-900/80 shadow-xl shadow-black/30 backdrop-blur-sm;
+  }
+
+  /* ── Label ──────────────────────────────────────────── */
+  .form-label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent;
+  }
+}
+
+/* ── Skeleton shimmer ───────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+.skeleton {
+  animation: shimmer 1.6s infinite linear;
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 800px 100%;
+  border-radius: 6px;
+}
+
+/* ── Fade-in ────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeInUp 0.18s ease-out both;
+}
+
+/* ── Auth page gradient background ─────────────────────── */
+.auth-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -20%, rgba(139,92,246,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 80%,  rgba(99,102,241,0.12) 0%, transparent 60%),
+    theme('colors.slate.950');
+}
